@@ -1,0 +1,22 @@
+section img.logo {
+	border: 0 !important;
+	background: none !important;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 200px;
+	padding-right: 15px;
+}
+
+section .large-margin {
+	margin-top: 60px !important;
+	margin-bottom: 60px !important;
+}
+
+section p, section li {
+	line-height: 1.8em !important;
+}
+
+section h2 {
+	margin-top: 20px !important;
+}
