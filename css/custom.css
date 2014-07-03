@@ -3,7 +3,7 @@ section img.logo {
 	background: none !important;
 	position: absolute;
 	bottom: 0;
-	right: 0;
+	left: 30px;
 	width: 200px;
 	padding-right: 15px;
 }
@@ -13,10 +13,22 @@ section .large-margin {
 	margin-bottom: 60px !important;
 }
 
+section .medium-margin {
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+}
+
 section p, section li {
 	line-height: 1.8em !important;
 }
 
 section h2 {
 	margin-top: 20px !important;
+}
+
+code.sql.example {
+	padding: 30px;
+	font-size: 28px;
+	line-height: 56px;
+	opacity: 1.0;
 }
