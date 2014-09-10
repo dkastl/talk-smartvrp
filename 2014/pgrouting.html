@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Shortest Path search in your Database and more with pgRoutingg</title>
+
+		<meta name="description" content="Tourenplanung und mehr - Neue Funktionen in pgRouting">
+		<meta name="author" content="Daniel Kastl, Georepublic">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/reveal.min.css">
+		<link rel="stylesheet" href="../css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '../css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<link rel="stylesheet" href="../css/custom.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+					<h1 style="text-transform:none;margin-top:70px;font-size:115px;line-height:125px">Shortest Path Search <br>in your Database<br>
+					</h1>
+					<h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">... and more with pgRouting</h3>
+					<p>
+						<small>Created by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a></small>
+					</p>
+					<img class="logo" src="../img/georepublic.png" />
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
+						<h2>pgRouting Project</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">An Extension for ...</h2>
+						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
+						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">An Open Source project, ...</h2>
+						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/osi.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">A Library providing ...</h2>
+						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/library.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">A Library providing ...</h2>
+						<ul>
+							<li>
+								Shortest Path Algorithm
+								<ul>
+									<li>Dijkstra, A-Star, One-to-many, All-pair SP.</li>
+									<li>Alternative Routes & Turn Restrictions</li>
+								</ul>
+							</li>
+							<li>Traveling Salesperson Algorithm</li>
+							<li>Drivetime Analysis</li>						
+							<li>Vehicle Route Problem Solver</li>							
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/forkme.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/database.png" />
+						<h2>Routing in the Database</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2>Create a Database</h2>
+						<p class="medium-margin">pgRouting extends PostgreSQL/PostGIS</p>
+						<p><pre><code data-trim class="sql example">
+CREATE DATABASE routing;
+\c routing
+CREATE EXTENSION postgis;
+CREATE EXTENSION pgrouting;
+	    				</code></pre></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2>SQL Query</h2>
+						<p><pre><code data-trim class="sql example">
+SELECT * FROM pgr_dijkstra('
+      SELECT gid as id,
+             source::integer,
+             target::integer,
+             length::float8 as cost
+        FROM ways',
+    30, 60, false, false);
+	    				</code></pre></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2>Query Result</h2>
+						<p><pre><code data-trim class="sql example" style="line-height:32px;">
+seq | node | edge |        cost         
+----+------+------+---------------------
+  0 |   30 |   53 |  0.0591267653820616
+  1 |   44 |   52 |  0.0665408320949312
+  2 |   14 |   15 |  0.0809556879332114
+  3 |   13 |   14 |   0.072694271986776
+  4 |   12 |   13 |   0.081239348480584
+  5 |   11 |   12 | 0.00746935522787469
+  6 |   10 | 6869 |  0.0164274192597773
+  7 |   59 |   72 |  0.0109385169537801
+  8 |   60 |   -1 |                   0
+(9 rows)
+	    				</code></pre></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:30px;margin-bottom:0px;height:460px" src="pgrouting/scale.png" />
+						<p>Flexibility vs. Speed</p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/road.jpg" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/trails.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/costs.png" />
+						<h2>Variable Costs</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/costvirt.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/slope.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/conditions.png" />
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a href="http://imgs.xkcd.com/comics/goto.png"><img style="border:0;background:none;padding-top:80px;margin-bottom:0px;height:250px" src="pgrouting/wrapper.png" /></a>
+						<small style="font-size:18px;text-align:right;">Source: http://imgs.xkcd.com/comics/goto.png</small>
+						<h2>Custom Functions</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<p><pre><code data-trim class="sql example" style="line-height:40px;max-height:580px;">
+CREATE OR REPLACE FUNCTION pgr_fromAtoB(
+    IN tbl varchar,
+    IN x1 float, IN y1 float,
+    IN x2 float, IN y2 float,
+)
+RETURNS SETOF record AS $$
+BEGIN
+    FOR rec IN EXECUTE sql LOOP
+        RETURN NEXT;
+    END LOOP;
+END;
+$$ LANGUAGE 'plpgsql' VOLATILE STRICT;
+	    				</code></pre></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img src="pgrouting/traveltime.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch" href="http://demo.smartvrp.com/na/routing"><img src="pgrouting/drivetime.png" /></a>
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:10px;width:300px" src="pgrouting/costs.png" />
+						<h1>Tour Planning</h1>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h1 style="padding-top:40px;">The Goal</h1>
+						<h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Find the best schedule and route <br/>to visit and complete all tasks?</h3>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2>pgr_vrpOneDepot</h2>
+						<p class="medium-margin"><strong>V</strong>ehicle <strong>R</strong>outing <strong>P</strong>roblem Solver</p>
+						<p><pre><code data-trim class="sql example">
+SELECT * FROM pgr_vrpOneDepot(
+    	'SELECT * FROM vorders'::text,
+    	'SELECT * FROM vvehicles'::text,
+    	'SELECT * FROM vdistance'::text,
+    1 ); 
+	    				</code></pre></p>
+						<p><small>(Currently available in a development branch))</small></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 style="padding-top:20px;">Sample Application</h3>
+						<a href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_001.png" /></a>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch"  href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_002.png" /></a>
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch"  href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_003.png" /></a>
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 style="padding-top:20px;">Optimized Schedule</h3>
+						<a href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_004.png" /></a>
+						<p><a href="http://demo.smartvrp.com">demo.smartvrp.com</a></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:30px;margin-bottom:0px;height:500px" src="pgrouting/gsoc.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">GSoC Project since 2010</h2>
+						<ul>
+							<li>Multimodal Routing</li>
+							<li>Time-Dependent Shortest Path</li>
+							<li>Graph Partitioning</li>						
+							<li>VRP with Time Windows</li>							
+ 						</ul>
+						<p class="fragment highlight-current-blue" style="padding-top:40px;"><strong>pgRouting is looking for Sponsors!</strong></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+					<h2>Interested in pgRouting?</h2>
+					<p class="large-margin">For more information:</p>
+					<ul>
+						<li>Email: <a href="mailto:daniel@georepublic.de">daniel@georepublic.de</a></li>
+						<li>Twitter: <a href="http://twitter.com/dkastl">@dkastl</a></li>
+						<li>Website: <a href="http://georepublic.info">http://georepublic.info</a></li>
+						<li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
+					</ul> 
+					</p>
+					<img class="logo" src="../img/georepublic.png" />
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
