@@ -46,9 +46,9 @@
 
 				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h3 class="large-margin">Having fun with Point Clouds</h3>
+						<h3 class="large-margin">Point Clouds in a Browser with WebGL</h3>
 						<img src="pointcloud/potree_combined.png" />
-						<h4 class="large-margin">... or how to combine "work" and go to the park with your children</h4>
+						<h4 class="large-margin">From data collection to publishing online</h4>
 						<p>
 							<small>Created by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a></small>
 						</p>
@@ -58,15 +58,19 @@
 
 				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h3 class="large-margin">Professional Work</h3>
+						<h3 class="large-margin">Why do we need Point Clouds?</h3>
 						<img style="width:100%;" src="pointcloud/potree_highway.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
-				</section>
 
-				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<img class="stretch" src="pointcloud/car.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="pointcloud/googlecar.jpg" />
+						<p style="font-size:12px;">Source: http://www.nytimes.com/2014/05/28/technology/googles-next-phase-in-driverless-cars-no-brakes-or-steering-wheel.html?_r=2</p>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
 				</section>
@@ -90,16 +94,13 @@
 						<img style="width:100%;" src="pointcloud/phantom.jpg" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
-				</section>
 
-				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<h3>Get some fresh air!</h3>
-						<video src="pointcloud/flight001.mp4" controls loop></video>
+						<video src="http://dkastl.s3.amazonaws.com/flight001.mp4" controls loop></video>
+						<img class="logo" src="../img/georepublic.png" />
 					</section>
-				</section>
 
-				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<img class="stretch" src="pointcloud/imagery.png" />
 						<img class="logo" src="../img/georepublic.png" />					
@@ -108,23 +109,31 @@
 
 				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h3>PhotoScan Blackbox</h3>
+						<h3>Raw Data Processing</h3>
 						<img style="width:100%;" src="pointcloud/photoscan.png" />
 						<img class="logo" src="../img/georepublic.png" />					
 					</section>
-				</section>
 
-				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Agisoft PhotoScan</h3>
+						<ul>
+							<li>Stand-alone desktop software</li>
+							<li>Performs photogrammetric processing of digital images</li>
+							<li>Generates 3D spatial data</li>
+							<li>Closed source software (Blackbox)</li>
+							<li>Would be nice to have an Open Source alternative</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<h3 class="large-margin">... wait (for a day)...</h3>				
 						<!-- <img style="width:40%;" src="pointcloud/beer.png" /> -->
 						<img style="width:40%;" src="pointcloud/coffee.png" />
 					</section>
-				</section>
 
-				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h3>Lasinfo</h3>
+						<h3 class="large-margin">Lasinfo</h3>
 						<img style="width:100%;" src="pointcloud/lasinfo.png" />
 						<p>1.2 GB LAS file | ~45 Mio. points</p>
 						<img class="logo" src="../img/georepublic.png" />					
@@ -152,9 +161,7 @@
 						<img class="stretch" src="pointcloud/potree_threejs.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
-				</section>
 
-				<section>
 					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<h3>Potree + Three.js</h3>
 						<ul>
@@ -165,6 +172,19 @@
 							<li>Renders up to a certain Level of Detail (LOD)</li>
 							<li>More details loaded over time</li>
 							<li>All features of Three.js available</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Future Work</h3>
+						<ul>
+							<li>Tools (distance measure, profiles, ...)</li>
+							<li>Incremental conversion</li>
+							<li>High quality shader</li>
+							<li>Normals & Lighting, Shadows</li>
+							<li>Interpolation</li>
+							<li>Integration with other projects</li>
 							<li>... a lot more to come!</li>
  						</ul>
 						<img class="logo" src="../img/georepublic.png" />
@@ -172,10 +192,8 @@
 				</section>
 
 				<section>
-					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h3>Demo</h3>
-						<a href="http://localhost/potree/examples/park.html" target="_blank"><img style="width:100%;" src="pointcloud/demo.png" /></a>
-						<img class="logo" src="../img/georepublic.png" />
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);padding0;">
+						<iframe style="width:100%;min-height:630px;" src="pointcloud/html/park.html"></iframe>
 					</section>
 				</section>
 
