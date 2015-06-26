@@ -6,7 +6,7 @@
 
 		<title>Shortest Path search in your Database and more with pgRouting</title>
 
-		<meta name="description" content="Tourenplanung und mehr - Neue Funktionen in pgRouting">
+		<meta name="description" content="Shortest Path search in your Database and more with pgRouting">
 		<meta name="author" content="Daniel Kastl, Georepublic">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,8 +61,8 @@
 							<li>Geographer, Mapper, Software Developer</li>
 							<li>Maintainer of the pgRouting Project</li>
 							<li>Founder of Georepublic</li>
-							<li>Living in Germany and Japan</li>						
-							<li>Enjoy Open Source FOSS4G</li>						
+							<li>Living in Germany and Japan</li>
+							<li>Enjoy Open Source FOSS4G</li>
 						</ul>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -78,7 +78,7 @@
 					</section>
 
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<img class="stretch" src="georepublic/screenshot_006.png" />
+						<img src="georepublic/screenshot_006.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
 
@@ -88,18 +88,14 @@
 					</section>
 
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<img class="stretch" src="georepublic/screenshot_002.png" />
-						<!-- <img class="logo" src="../img/georepublic.png" /> -->
-					</section>
-
-					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<h2 style="padding-top:20px;">Commercial Services</h2>
 						<ul>
 							<li>FOSS4G Development</li>
 							<li>Mobile Apps & LBS</li>
 							<li>Open Data & Open Government</li>
-							<li>Training & Consulting</li>						
-							<li>Hackathons (Code4Japan)</li>						
+							<li>Training & Consulting</li>
+							<li>Hackathons (Code4Japan)</li>	
+							<li>OpenStreetMap</li>	
 						</ul>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -113,14 +109,14 @@
 					</section>
 
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h2 style="padding-top:40px;padding-bottom:30px;">An Extension for ...</h2>
+						<h2 style="padding-top:40px;padding-bottom:30px;">An Open Source project, ...</h2>
 						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
 						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
 
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-						<h2 style="padding-top:40px;padding-bottom:30px;">An Open Source project, ...</h2>
+						<h2 style="padding-top:40px;padding-bottom:30px;">Ein Open Source Projekt, ...</h2>
 						<img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/osi.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -142,8 +138,11 @@
 								</ul>
 							</li>
 							<li>Traveling Salesperson Algorithm</li>
-							<li>Drivetime Analysis</li>						
-							<li>Vehicle Route Problem Solver</li>							
+							<li>Drivetime Analysis</li>	
+							<li>Vehicle Route Problem Solver</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
  						</ul>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -244,7 +243,7 @@ seq | node | edge |        cost
 				<section>
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<a href="http://imgs.xkcd.com/comics/goto.png"><img style="border:0;background:none;padding-top:80px;margin-bottom:0px;height:250px" src="pgrouting/wrapper.png" /></a>
-						<small style="font-size:18px;text-align:right;">Source: http://imgs.xkcd.com/comics/goto.png</small>
+						<small style="font-size:18px;text-align:right;">Quelle: http://imgs.xkcd.com/comics/goto.png</small>
 						<h2>Custom Functions</h2>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -300,7 +299,7 @@ SELECT * FROM pgr_vrpOneDepot(
     	'SELECT * FROM vdistance'::text,
     1 ); 
 	    				</code></pre></p>
-						<p><small>(Currently available in a development branch))</small></p>
+						<p><small>(Currently available in "develop" branch))</small></p>
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
 
@@ -329,6 +328,33 @@ SELECT * FROM pgr_vrpOneDepot(
 
 				<section>
 					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:30px;" src="pgrouting/garbage.gif" />
+						<h2>Garbage Collection</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">Complex Optimization Problem</h2>
+						<ul>
+							<li>Depot to empty trucks</li>
+							<li>Various vehicle types</li>
+							<li>Different garbage types</li>
+							<li>U-turns prohibited</li>
+							<li>Road-access constraints</li>
+							<li>Special requirements</li>	
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a href="http://imaptools.com:8080/tt/5"><img style="width:70%;" src="pgrouting/uruguay.png" /></a>
+						<p><a href="http://imaptools.com:8080/tt/5">http://imaptools.com:8080/tt/5</a></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
 						<img style="border:0;background:none;padding-top:30px;margin-bottom:0px;height:500px" src="pgrouting/gsoc.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
@@ -339,16 +365,51 @@ SELECT * FROM pgr_vrpOneDepot(
 							<li>Multimodal Routing</li>
 							<li>Time-Dependent Shortest Path</li>
 							<li>Graph Partitioning</li>	
-							<li>VRP with Time Windows</li>			
+							<li>VRP with Time Windows</li>		
+							<li>New osm2pgrouting (import, export, OSRM profiles)</li>		
  						</ul>
-						<p class="fragment highlight-current-blue" style="padding-top:40px;"><strong>pgRouting is looking for Sponsors!</strong></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
+						<h2>Towards v3.0</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
+						<ul>
+							<li>Better use of Boost</li>
+							<li>Removal of duplicate code</li>
+							<li>Support for big integer</li>
+							<li>Vertex ID handling</li>
+							<li>Smarter "undirected with reverse cost"</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h1 style="padding-top:40px;">An Idea</h1>
+						<h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Keep the graph in memory <br/> to speedup subsequent routing requests!</h3>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/pgr_now.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pgrouting/pgr_then.png" />
 						<img class="logo" src="../img/georepublic.png" />
 					</section>
 				</section>
 
 				<section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-					<h2>Interested in pgRouting?</h2>
-					<p class="large-margin">For more information:</p>
+					<h2 style="padding-top:40px;">Interested in pgRouting?</h2>
 					<ul>
 						<li>Email: <a href="mailto:daniel@georepublic.de">daniel@georepublic.de</a></li>
 						<li>Twitter: <a href="http://twitter.com/dkastl">@dkastl</a></li>
