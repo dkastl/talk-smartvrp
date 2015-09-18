@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>「すぐレポ」Location-based Task Management for Mobile Business</title>
+
+		<meta name="description" content="「すぐレポ」Location-based Task Management for Mobile Business">
+		<meta name="author" content="Daniel Kastl, Georepublic">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/reveal.min.css">
+		<link rel="stylesheet" href="../css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '../css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<link rel="stylesheet" href="../css/custom.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="bizyman/logo.png" />
+						<h4 class="large-margin">Location-based Task Management for Mobile Business</h4>
+						<p>
+							<small>Created by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a></small>
+						</p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<!-- <section>
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="../img/georepublic_large.png" />
+						<ul>
+							<li>German-Japanese company, founded in 2009</li>
+							<li>Open Source Geolocation Technologies</li>						
+							<li>Currently 8 developers from 3 countries</li>
+							<li>Osaka City University Incubator (until 2013)</li>						
+							<li>"Digital Nomads"</li>
+						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section> -->
+
+				<!-- <section>
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:20px;">Projects & Activities</h2>
+						<ul>
+							<li>Code for Japan</li>
+							<li>OSGeo (Japan)</li>
+							<li>OpenStreetMap Japan</li>
+							<li>Open Knowledge Foundation Japan</li>						
+							<li>LocalWiki Japan</li>						
+							<li>pgRouting (with GSoC)</li>						
+						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_001.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_004.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_006.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_005.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_002.png" />
+					</section>
+				</section> -->
+
+				<!-- <section>
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:20px;">Commercial Services</h2>
+						<ul>
+							<li>FOSS4G</li>
+							<li>Mobile Apps</li>
+							<li>Open Data & Open Government</li>
+							<li>Training & Consulting</li>						
+							<li>Hackathons</li>						
+						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_003.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_007.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_008.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="georepublic/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="georepublic/screenshot_009.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section> -->
+
+				<section>
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="bizyman/logo_70.png" />
+						<h2 style="font-size:4em;padding-top:40px;">The Idea</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_50.png" />
+						<p>Location-based Task Management <br> for "Mobile Business":</p>
+						<ul>
+							<li>Facilitate On-site Customer Services</li>
+							<li>Optimize Business Processes</li>
+							<li>Integrate Service Workflows</li>
+							<li>Increase Mobility and Service Quality</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_012.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_014.jpg" />
+						<!-- <img class="logo" src="../img/georepublic.png" /> -->
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_015.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_016.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_013.jpg" />
+						<!-- <img class="logo" src="../img/georepublic.png" /> -->
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_017.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_018.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_019.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_020.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_021.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_30.png" />
+						<h2>For any mobile work!</h2>
+						<ul>
+							<li>Courier, care services</li>
+							<li>On-site field services</li>
+							<li>Infrastructure works</li>
+							<li>Any work with local tasks ...</li>
+ 						</ul>
+ 						<p><strong>=> Location-based Task Management</strong></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="bizyman/redmine.png" />
+						<h2 style="font-size:2em;padding-top:20px;">Issue tracker</h2>
+						<p>for Non-Developers</p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_50.png" />
+						<h2 style="font-size:2em;padding-top:20px;">Open Technologies</h2>
+						<ul>
+							<li>Open Source Software (Redmine, PostGIS)</li>
+							<li>Open Standards (OGC, Linked Data, etc.)</li>
+							<li>Open Data (OpenStreetMap, etc.)</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="bizyman/logo_70.png" />
+						<h2 style="font-size:4em;padding-top:40px;">Workflow</h2>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_30.png" />
+						<h2>[Step 1] Create Report</h2>
+						<ul>
+							<li>With smartphone or from webbrowser</li>
+							<li>Attach photo and description</li>
+							<li>Provide additional information,<br> ie. severity, classification, etc.</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_30.png" />
+						<h2>[Step 2] Review Report</h2>
+						<ul>
+							<li>Change report status</li>
+							<li>Assign report to group or person</li>
+							<li>Set additional attributes,<br> ie. tags, start or end date, etc.</li>
+							<li>Document the process</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_30.png" />
+						<h2>[Step 3] Resolve Report</h2>
+						<ul>
+							<li>Handle the report and resolve the task</li>
+							<li>Change report status (in progress, resolved)</li>
+							<li>Document work (ie. photos, working time)</li>
+							<li>Pass work to new person (optional)</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:20px;" src="bizyman/logo_30.png" />
+						<h2>[Step 4] Close Report</h2>
+						<ul>
+							<li>Verify the result</li>
+							<li>Change report status to "closed"</li>
+							<li>Document the process</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:60px;" src="bizyman/logo_70.png" />
+						<h2 style="font-size:4em;padding-top:40px;">Demo</h2>
+						<p><a href="http://beta.sugurepo.jp">http://beta.sugurepo.jp</a></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img src="sugurepo/screenshot_019.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img src="sugurepo/screenshot_020.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="sugurepo/screenshot_021.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_022.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="sugurepo/screenshot_023.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:200px" src="tourplan/pgrouting.png" />
+						<h1>Tour Planning</h1>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="smartvrp/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h1 style="padding-top:40px;">The Goal</h1>
+						<h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Find the best schedule and route <br/>to visit and complete all tasks?</h3>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch"  href="http://demo.smartvrp.com"><img src="tourplan/screenshot_003.png" /></a>
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2>pgr_vrpOneDepot</h2>
+						<p class="medium-margin"><strong>V</strong>ehicle <strong>R</strong>outing <strong>P</strong>roblem Solver</p>
+						<p><pre><code data-trim class="sql example">
+SELECT * FROM pgr_vrpOneDepot(
+    	'SELECT * FROM vorders'::text,
+    	'SELECT * FROM vvehicles'::text,
+    	'SELECT * FROM vdistance'::text,
+    1 ); 
+	    				</code></pre></p>
+						<p><small>(Released with pgRouting 1.3)</small></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 style="padding-top:20px;">Sample Application</h3>
+						<a href="http://demo.smartvrp.com"><img src="tourplan/screenshot_001.png" /></a>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch"  href="http://demo.smartvrp.com"><img src="tourplan/screenshot_002.png" /></a>
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<a class="stretch"  href="http://demo.smartvrp.com"><img src="tourplan/screenshot_003.png" /></a>
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 style="padding-top:20px;">Schedule Optimizationn</h3>
+						<a href="http://demo.smartvrp.com"><img src="tourplan/screenshot_004.png" /></a>
+						<p><a href="http://demo.smartvrp.com">demo.smartvrp.com</a></p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 style="padding-top:20px;">Work in Progress</h3>
+						<h2>Garbage Collection</h2>
+						<img style="width:100%;" src="bizyman/vrp_workflow.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h2 style="padding-top:20px;">VRP for Garbage Container Collection</h2>
+						<ul>
+							<li>Support for multiple depots</li>
+							<li>Pre-defined start and ending sites</li>
+							<li>Time Window and Capacity constraints</li>
+							<li>Support for Disposal (Dump) sites</li>						
+							<li>VRP Tools (C++ Class Library for VRP)</li>						
+						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="tourplan/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="tourplan/forkme.png" />
+					</section>
+				</section>
+
+				<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+					<a class="stretch" href="http://beta.sugurepo.jp"><img src="sugurepo/screenshot_018.png" /></a>
+					<img class="logo" src="../img/georepublic.png" />
+				</section>
+
+				<section data-background="bizyman/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+					<img style="border:0;background:none;padding-top:60px;" src="bizyman/logo_50.png" />
+					<h3 style="padding-top:30px;">For more information:</h3>
+					<ul>
+						<li>Email: <a href="mailto:daniel@georepublic.de">daniel@georepublic.de</a></li>
+						<li>Twitter: <a href="http://twitter.com/dkastl">@dkastl</a></li>
+						<li>Website: <a href="http://georepublic.info">http://georepublic.info</a></li>
+						<li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
+					</ul> 
+					</p>
+					<img class="logo" src="../img/georepublic.png" />
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

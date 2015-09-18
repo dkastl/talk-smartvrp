@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Point Clouds in a Browser with WebGL</title>
+
+		<meta name="description" content="Point Clouds in a Browser with WebGL">
+		<meta name="author" content="Daniel Kastl, Georepublic">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../css/reveal.min.css">
+		<link rel="stylesheet" href="../css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = '../css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<link rel="stylesheet" href="../css/custom.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Point Clouds in a Browser with WebGL</h3>
+						<img src="pointcloud/potree_combined.png" />
+						<h4 class="large-margin">Potree, a WebGL point cloud viewer for large datasets</h4>
+						<p>
+							<small>Created by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a></small>
+						</p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Why do we need Point Clouds?</h3>
+						<img style="width:100%;" src="pointcloud/potree_highway.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pointcloud/car.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img style="width:100%;" src="pointcloud/googlecar.jpg" />
+						<p style="font-size:12px;">Source: http://www.nytimes.com/2014/05/28/technology/googles-next-phase-in-driverless-cars-no-brakes-or-steering-wheel.html?_r=2</p>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Ingredients</h3>
+						<p>To make your own point cloud you need:</p>
+						<ul>
+							<li class="fragment roll-in">Drone with Camera</li>
+							<li class="fragment roll-in">Post-processing software</li>
+							<li class="fragment roll-in">Potree.js (with converter)</li>
+							<li class="fragment roll-in">WebGL-capable browser</li>
+ 						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Playing @ Work</h3>
+						<img style="width:100%;" src="pointcloud/phantom.jpg" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Get some fresh air!</h3>
+						<video src="http://dkastl.s3.amazonaws.com/flight001.mp4" controls loop></video>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<img class="stretch" src="pointcloud/imagery.png" />
+						<img class="logo" src="../img/georepublic.png" />					
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Raw Data Processing</h3>
+						<img style="width:100%;" src="pointcloud/photoscan.png" />
+						<img class="logo" src="../img/georepublic.png" />					
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Agisoft PhotoScan</h3>
+						<ul>
+							<li>Stand-alone desktop software</li>
+							<li>Performs photogrammetric processing of digital images</li>
+							<li>Generates 3D spatial data</li>
+							<li>Closed source software (Blackbox)</li>
+							<li>Would be nice to have an Open Source alternative</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">... wait (for a day)...</h3>				
+						<!-- <img style="width:40%;" src="pointcloud/beer.png" /> -->
+						<img style="width:40%;" src="pointcloud/coffee.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3 class="large-margin">Lasinfo</h3>
+						<img style="width:100%;" src="pointcloud/lasinfo.png" />
+						<p>1.2 GB LAS file | ~45 Mio. points</p>
+						<img class="logo" src="../img/georepublic.png" />					
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Potree Converter</h3>
+						<img style="width:30%;" src="pointcloud/potree_level1.png" />
+						<img style="width:30%;" src="pointcloud/potree_level2.png" />
+						<img style="width:30%;" src="pointcloud/potree_level4.png" />
+						<ul>
+							<li>Octree Data Structure</li>
+							<li>Each node contains a sparse subset of points</li>
+							<li>Spacing and levels for performance vs. quality</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />	
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Potree + Three.js</h3>
+						<img class="stretch" src="pointcloud/potree_threejs.png" />
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Potree + Three.js</h3>
+						<ul>
+							<li>Point Cloud Rendering in Web Browsers</li>
+							<li>Bachelor Thesis of Markus Schütz</li>
+							<li>Pure Javascript and WebGL (no plugins)</li>
+							<li>Renders only visible Regions</li>
+							<li>Renders up to a certain Level of Detail (LOD)</li>
+							<li>More details loaded over time</li>
+							<li>All features of Three.js available</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>Future Work</h3>
+						<ul>
+							<li>Tools (distance measure, profiles, ...)</li>
+							<li>Incremental conversion</li>
+							<li>High quality shader</li>
+							<li>Normals & Lighting, Shadows</li>
+							<li>Interpolation</li>
+							<li>Integration with other projects</li>
+							<li>... a lot more to come!</li>
+ 						</ul>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);padding0;">
+						<h3>Demo</h3>
+						<a href="pointcloud/html/park.html" target="_blank"><img style="width:100%;" src="pointcloud/demo.png" /></a>
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+				<section>
+					<section data-background="pointcloud/park_bg.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+						<h3>PointClouds in the Browser with Potree</h3>
+						<ul>
+							<li>Project: <a href="http://potree.org">http://potree.org</a></li>
+							<li>Email: <a href="mailto:daniel@georepublic.co.jp">daniel@georepublic.de</a></li>
+							<li>Twitter: <a href="http://twitter.com/dkastl">@dkastl</a></li>
+						</ul> 
+						<img class="logo" src="../img/georepublic.png" />
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
